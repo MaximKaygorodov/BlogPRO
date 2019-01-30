@@ -1,0 +1,38 @@
+.navbar {
+    background-color: #1f3525 !important;
+    border-bottom-width: 0 !important;
+}
+
+.navbar li a, .navbar .navbar-brand { 
+    color: #58c561 !important;
+  }
+
+#side-menu {
+    height: 100vh;
+    background-color: rgb(231, 231, 231);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.288);
+}
+
+/* Parametrs of Account photo in left side menu */
+#user-photo {
+    margin: 60px 0 30px 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.322);
+    width: 85%;
+}
+li {
+     color: black;
+ }
+
+ footer a:hover {
+    color: #777;
+    text-decoration: none;
+  }
+
+footer {
+    width: 100%;
+    position: fixed;
+    background-color: #235833;
+    color: #f5f5f5;
+    padding: 32px;
+    bottom: 0;
+}
