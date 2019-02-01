@@ -58,24 +58,47 @@
 			</nav>
 <!-- End of navigation bar -->
 <!-- Start of left side Menu -->
-<div class="col-md-2 col-sm-3 col-xs-10" id="side-menu">
+<div id="side-menu">
 	<div class="row" id="account-info">
 		<!-- Account photo & information -->
 			<div class="container-fluid text-center">
+					<span id="close-button"><a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a></span>
 					<img src="https://www.r-users.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png" class="img-circle" alt="User-Photo" id="user-photo">
 					<ul class="nav nav-pills nav-stacked">
 						<!-- List of functions -->
 							<li><a href="index.html">Published Articles</a></li>
 							<li class="active"><a href="unpublishedArticles.html">Unpublished Articles</a></li>
 							<li><a href="сreateNewArticle.html">Create New Article</a></li>
-							<li><a href="#">fun 1</a></li>
 						</ul>
 				</div>
 	</div>
 </div>
-<div class="col-md-10" id="content-field">
-	<div class="container-fluid">
-	</div>
+<div class="container-fluid" id="content-field">
+			<span onclick="openNav()" id="open-button"></span>
+		<div class="container">
+			<div class="row">
+				<div class="well col-md-7 col-xs-10" id="uArticle">
+					<h3>First Article</h3><br>
+					Lorem ipsum dolor sit, amet consectetur adipisicing elit. Temporibus hic sapiente atque vero. Incidunt, minima quo id quidem, ut eos repellat officiis ad in nesciunt nam a. Ipsum, odio quibusdam!
+				</div>
+				<div class="btn-group-vertical" id="article-side-controls">
+						<button type="button" class="btn btn-danger"><span class="glyphicon glyphicon glyphicon-trash"></span></button>
+						<button type="button" class="btn btn-default"><span class="glyphicon glyphicon glyphicon-pencil"></span></button>
+						<button type="button" class="btn btn-default"><span class="glyphicon 	glyphicon glyphicon-menu-hamburger"></span></button>
+					  </div>
+			</div>
+			<div class="row">
+				<div class="well col-md-7 col-xs-10" id="uArticle">
+						<h3>Second Article</h3><br>
+					Lorem ipsum dolor sit, amet consectetur adipisicing elit. Temporibus hic sapiente atque vero. Incidunt, minima quo id quidem, ut eos repellat officiis ad in nesciunt nam a. Ipsum, odio quibusdam!
+				</div>
+				<div class="btn-group-vertical" id="article-side-controls">
+						<button type="button" class="btn btn-danger"><span class="glyphicon glyphicon glyphicon-trash"></span></button>
+						<button type="button" class="btn btn-default"><span class="glyphicon glyphicon glyphicon-pencil"></span></button>
+						<button type="button" class="btn btn-default"><span class="glyphicon 	glyphicon glyphicon-menu-hamburger"></span></button>
+					  </div>	
+			</div>
+		</div>
 </div>
 
 
