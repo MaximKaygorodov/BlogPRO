@@ -1,19 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<script src="script.js"></script>
-	<link rel="stylesheet" href="style.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" href="style.css">
 	<title>BlogPRO</title>
 </head>
 <body>
-		<nav class="navbar navbar-inverse navbar-fixed-top" >
+	<nav class="navbar navbar-inverse navbar-fixed-top" >
 				<div class="container-fluid">
 					<div class="navbar-header">
 						<!-- Button to open menu on xs size -->
@@ -27,7 +24,7 @@
 					</div>
 							<!-- <div class="col-xs-1 text-center" id="search-form">
 									<form >
-											<div class="input-group" >
+										<div class="input-group" >
 												<input type="text" class="form-control" placeholder="Search">
 												<div class="input-group-btn">
 													<button class="btn btn-default " type="submit">
@@ -37,7 +34,7 @@
 											</div>
 										</form>
 							</div> -->
-					<div class="collapse navbar-collapse" id="myNavbar">
+							<div class="collapse navbar-collapse" id="myNavbar">
 						<ul class="nav navbar-nav navbar-right">
 								<li class="dropdown">
 									<a class="dropdown-toggle" data-toggle="dropdown" href="#">
@@ -45,14 +42,14 @@
 
 										</span> UserName
 										<span class="caret"></span>
-								</a>
+									</a>
 								<ul class="dropdown-menu">
 										<li><a href="#">Edit Profile</a></li>
 										<li><a href="#">Settings</a></li>
 										<li><a href="#">Log Out</a></li> 
 									</ul>
 							</li>
-							</ul>
+						</ul>
 					</div>
 				</div>
 			</nav>
@@ -62,8 +59,8 @@
 	<div class="row" id="account-info">
 		<!-- Account photo & information -->
 			<div class="container-fluid text-center">
-					<span id="close-button"><a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a></span>
-					<img src="https://www.r-users.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png" class="img-circle" alt="User-Photo" id="user-photo">
+				<span class="navbar-toggle" id="close-button" onclick="closeNav()"></span>
+				<img src="https://www.r-users.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png" class="img-circle" alt="User-Photo" id="user-photo">
 					<ul class="nav nav-pills nav-stacked">
 						<!-- List of functions -->
 							<li><a href="index.html">Published Articles</a></li>
@@ -73,11 +70,12 @@
 				</div>
 	</div>
 </div>
-<div class="container-fluid" id="content-field">
-		<span onclick="openNav()" id="open-button"></span>
+<div class="col-md-2 col-xs-0"></div>
+<div class="container-fluid col-md-10 col-sm-9 col-xs-12" id="content-field">
+	<span class="navbar-toggle" onclick="openNav()" id="open-button"></span>
 	<br><br><br>
 	<!-- Text Area -->
-		<div class="row">
+	<div class="row">
 			<div class="col-md-1">
 
 			</div>
@@ -88,21 +86,19 @@
 						  <textarea class="form-control"  placeholder="Start to write" rows="10"></textarea>
 						</div>
 						<div class="row text-right">
-							<div class="container">
-							<div class="checkbox">
-							  <label><input type="checkbox"> Remember me</label>
-							</div>
 								<button type="button" class="btn btn-default">Publish Article</button>
 								<button type="button" class="btn btn-default">Save Article as Unpublished</button>
 						</div>
-							</div>
 					  </form>
-			</div>
+					</div>
 		</div>
 </div>
 
 
 
 
+<script src="script.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 </body>
 </html>
