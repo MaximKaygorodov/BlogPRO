@@ -7,8 +7,11 @@
     color: #bf99e2 !important;
   }
 
+.col-xs-0 {
+    width: 0px !important; 
+}
+
 #side-menu {
-    width: 250px;
     overflow-x: hidden;
     z-index: 2;
     height: 100% !important;
@@ -76,4 +79,13 @@ li {
 
 #content-field {
     background-color: rgb(253, 253, 253);
+}
+
+a, a:hover{
+    color: black;
+    text-decoration: none;
+}
+
+.margin-top {
+    margin-top: 20px;
 }
