@@ -4,6 +4,7 @@ var fs = require("fs");
  
 var app = express();
 var jsonParser = bodyParser.json();
+app.set("view engine", "hbs");
  
 app.use(express.static(__dirname + "/public"));
 app.use("/content", function (request, response) {
@@ -13,9 +14,10 @@ app.use("/ready", function (request, response) {
   response.sendFile(__dirname + "/public/content_ready.html");
 });
 app.use("/edit/:contentID", function (request, response) {
-	    let conId = request.params["contentID"];
-	console.log(conId);
-  response.sendFile(__dirname + "/public/index_edit.html");
+        var id = request.params["contentID"];//id статьи
+        response.render("index_edit.hbs", {
+            conId: id
+        });
 });
 // получение списка данных
 app.get("/api/contents", function(req, res){

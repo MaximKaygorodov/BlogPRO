@@ -153,7 +153,7 @@
         var row = function (content) {
             return "<tr data-rowid='" + content.id + "'><td>" + content.id + "</td>" +
                    "<td>" + content.title + "</td> <td>" + content.context + "</td>" +
-                   "<td><a class='editLink' data-id='" + content.id + "'>Изменить</a> | " +
+                   "<td><a class='editLink' data-id='" + content.id + "' href='http://localhost:3000/edit/" + content.id + "'>Изменить</a> | " +
                     "<a class='removeLink' data-id='" + content.id + "'>Удалить</a> | " +"<a class='publishLink' data-id='" + content.id + "'>Опубликовать</a></td></tr>";
         }
         // сброс значений формы
