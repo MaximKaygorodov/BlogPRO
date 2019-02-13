@@ -12,15 +12,6 @@ function openNav() {
 function closeNav() {
   document.getElementById("side-menu").className = ("col-md-2 hidden-xs");
 }
- // отправка формы
- $("#save").click(function (e) {
-  e.preventDefault();
-  var form = document.forms["contentForm"];
-        var id = form.elements["id"].value;
-        var title = form.elements["title"].value;
-        var context = form.elements["context"].value;
-        CreateContent(title, context);
-});
 // Добавление статьи
     function CreateContent(titleText, contextText) {
         $.ajax({
