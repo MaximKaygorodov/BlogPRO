@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Опубликованные статьи</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+</head>
+<body>
+    <h2>Опубликованные статьи</h2>
+	<ul>
+	<li><a href="http://localhost:3000/content">Неопубликованные статьи</a></li>
+	<li><a href="http://localhost:3000/">Главная страница</a></li>
+	</ul>
+    <table class="table table-condensed table-striped table-bordered">
+        <thead><tr><th>Id</th><th>Название статьи</th><th>Содержание статьи</th><th></th></tr></thead>
+        <tbody>
+        </tbody>
+    </table>
+  
+    <script>
+        // Получение всех статей
+        function GetContents() {
+            $.ajax({
+                url: "/aplic/contents",
+                type: "GET",
+                contentType: "application/json",
+                success: function (contents) {
+                    var rows = "";
+                    $.each(contents, function (index, content) {
+                        // добавляем полученные элементы в таблицу
+                        rows += row(content);
+                    })
+                    $("table tbody").append(rows);
+                 }
+            });
+        }
+        // Получение одной статьи
+        function GetContent(id) {
+            $.ajax({
+                url: "/aplic/contents/"+id,
+                type: "GET",
+                contentType: "application/json",
+                success: function (content) {
+                    var form = document.forms["contentForm"];
+                    form.elements["id"].value = content.id;
+                    form.elements["title"].value = content.title;
+                    form.elements["context"].value = content.context;
+                }
+            });
+        }
+        // Добавление статьи
+        function CreateContent(titleText, contextText) {
+            $.ajax({
+                url: "aplic/contents",
+                contentType: "application/json",
+                method: "POST",
+                data: JSON.stringify({
+                    title: titleText,
+                    context: contextText
+                }),
+                success: function (content) {
+                    reset();
+                    $("table tbody").append(row(content));
+                }
+            })
+        }
+        // Изменение пользователя
+        function EditContent(contentId, titleText, contextText) {
+            $.ajax({
+                url: "aplic/contents",
+                contentType: "application/json",
+                method: "PUT",
+                data: JSON.stringify({
+                    id: contentId,
+                    title: titleText,
+                    context: contextText
+                }),
+                success: function (content) {
+                    reset();
+                    $("tr[data-rowid='" + content.id + "']").replaceWith(row(content));
+                }
+            })
+        }
+  
+        // сброс формы
+        function reset() {
+            var form = document.forms["contentForm"];
+            form.reset();
+            form.elements["id"].value = 0;
+        }
+  
+        // Удаление статьи
+        function DeleteContent(id) {
+            $.ajax({
+                url: "aplic/contents/"+id,
+                contentType: "application/json",
+                method: "DELETE",
+                success: function (content) {
+                    console.log(content);
+                    $("tr[data-rowid='" + content.id + "']").remove();
+                }
+            })
+        }
+        // создание строки для таблицы
+        var row = function (content) {
+            return "<tr data-rowid='" + content.id + "'><td>" + content.id + "</td>" +
+                   "<td>" + content.title + "</td> <td>" + content.context + "</td>" +
+                   "<td>"+ content.time+"<br><a class='removeLink' data-id='" + content.id + "'>Удалить</a></td></tr>";
+        }
+        // сброс значений формы
+        $("#reset").click(function (e) {
+  
+            e.preventDefault();
+            reset();
+        })
+  
+        // отправка формы
+        $("form").submit(function (e) {
+            e.preventDefault();
+            var id = this.elements["id"].value;
+            var title = this.elements["title"].value;
+            var context = this.elements["context"].value;
+            if (id == 0)
+                CreateContent(title, context);
+            else
+                EditContent(id, title, context);
+        });
+  
+        // нажимаем на ссылку Изменить
+        $("body").on("click", ".editLink", function () {
+            var id = $(this).data("id");
+            GetContent(id);
+        })
+        // нажимаем на ссылку Удалить
+        $("body").on("click", ".removeLink", function () {
+            var id = $(this).data("id");
+            DeleteContent(id);
+        })
+  
+        // загрузка статей
+        GetContents();
+  
+    </script>
+</body>
+</html>
