@@ -30,10 +30,6 @@
     </form>
   
     <script>
-	// код, выполняемый, когда страница загружена
-		$(document).ready(function(){
-		GetContent({{conId}});
-		    });
 		// Получение всех статей
         function GetContents() {
             $.ajax({
@@ -148,7 +144,6 @@
             time=time+":"+dat.getSeconds();
             console.log(id, title, context, time);
             EditContent(id, title, context, time);
-            document.location.href = "http://www.site.ru";
         });
   
         // нажимаем на ссылку Изменить
@@ -161,9 +156,14 @@
             var id = $(this).data("id");
             DeleteContent(id);
         })
-  
+        var number = 0;
+        console.log(number);
         // загрузка статей
-        GetContents();
+        $(document).ready(function(){
+            if(number==0){
+		GetContent({{conId}});}
+        number = 1;
+		    });
   
     </script>
 </body>

@@ -7,6 +7,12 @@ var jsonParser = bodyParser.json();
 app.set("view engine", "hbs");
  
 app.use(express.static(__dirname + "/public"));
+app.use("/editArticle/:contentID", function (request, response) {
+    var id = request.params["contentID"];//id статьи
+    response.render("createNewArticle.hbs", {
+        conId: id
+    });
+});
 // получение списка данных
 app.get("/api/contents", function(req, res){
       
@@ -43,7 +49,8 @@ app.post("/api/contents", jsonParser, function (req, res) {
      
     var titleText = req.body.title;
     var contextText = req.body.context;
-    var content = {title: titleText, context: contextText};
+    var timeText = req.body.time;
+    var content = {title: titleText, context: contextText, time: timeText};
      
     var data = fs.readFileSync("contents.json", "utf8");
     var contents = JSON.parse(data);
@@ -93,6 +100,7 @@ app.put("/api/contents", jsonParser, function(req, res){
     var contentId = req.body.id;
     var titleText = req.body.title;
     var contextText = req.body.context;
+    var timeText = req.body.time;
      
     var data = fs.readFileSync("contents.json", "utf8");
     var contents = JSON.parse(data);
@@ -107,6 +115,7 @@ app.put("/api/contents", jsonParser, function(req, res){
     if(content){
         content.context = contextText;
         content.title = titleText;
+        content.time = timeText;
         var data = JSON.stringify(contents);
         fs.writeFileSync("contents.json", data);
         res.send(content);
@@ -115,6 +124,7 @@ app.put("/api/contents", jsonParser, function(req, res){
         res.status(404).send(content);
     }
 });
+
 
 
 
@@ -154,7 +164,8 @@ app.post("/aplic/contents/", jsonParser, function (req, res) {
      
     var titleText = req.body.title;
     var contextText = req.body.context;
-    var content = {title: titleText, context: contextText};
+    var timeText = req.body.time;
+    var content = {title: titleText, context: contextText, time: timeText};
      
     var data = fs.readFileSync("contents_ready.json", "utf8");
     var contents = JSON.parse(data);
@@ -226,7 +237,6 @@ app.put("/aplic/contents", jsonParser, function(req, res){
         res.status(404).send(content);
     }
 });
-
 
 
 

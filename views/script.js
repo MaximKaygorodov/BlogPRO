@@ -22,7 +22,8 @@ function GetContent(id) {
           var form = document.forms["contentForm"];
           form.elements["id"].value = content.id;
           form.elements["title"].value = content.title;
-          form.elements["context"].value = content.context;
+          //form.elements["context"].value = content.context;
+          quill.setContents([{ insert: content.context }]);
       }
   });
 }

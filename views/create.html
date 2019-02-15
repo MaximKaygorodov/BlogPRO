@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -123,9 +123,11 @@
 	          time=time+"  "+dat.getHours();	  
 	          time=time+":"+dat.getMinutes();
             time=time+":"+dat.getSeconds();
-        CreateContent(title, context, time);
+				console.log(id, title, context, time);
+        EditContent(id, title, context, time);
         quill.setContents([{ insert: '\n' }]);
 });
+
 // сохранение значений только что написанной статьи
 $("#publish").click(function (e) {
   e.preventDefault();
@@ -146,7 +148,29 @@ $("#publish").click(function (e) {
 			quill.setContents([{ insert: '\n' }]);
 			reset();
 				})
-				
+				// Изменение статьи
+        function EditContent(contentId, titleText, contextText, timeText) {
+            $.ajax({
+                url: "api/contents",
+                contentType: "application/json",
+                method: "PUT",
+                data: JSON.stringify({
+                    id: contentId,
+                    title: titleText,
+                    context: contextText,
+                    time: timeText
+                }),
+                success: function () {
+                    reset();
+                }
+            })
+        }
+ // загрузка статей
+        $(document).ready(function(){
+            if(number==0){
+		GetContent({{conId}});}
+        number = 1;
+		    });
 </script>
 <script src="script.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
