@@ -1,0 +1,91 @@
+.navbar {
+    background-color: #444349 !important;
+    border-bottom-width: 0 !important;
+}
+
+.navbar li a, .navbar .navbar-brand { 
+    color: #bf99e2 !important;
+  }
+
+.col-xs-0 {
+    width: 0px !important; 
+}
+
+#side-menu {
+    overflow-x: hidden;
+    z-index: 2;
+    height: 100% !important;
+    position: fixed ;
+    background-color: rgb(231, 231, 231);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.288);
+    transition: 0.5s;
+}
+
+/* Parametrs of Account photo in left side menu */
+.user-photo {
+    margin: 60px 0 30px 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.322);
+    width: 85%;
+}
+li {
+     color: black;
+ }
+
+.content-field{
+    top: 50px;
+    position: relative;
+    height: 100vh;
+}
+
+.uArticle {
+    margin-top: 20px;
+}
+
+.uArticle:hover{
+    background-color: rgb(236, 236, 236);
+}
+
+.article-side-buttons {
+    margin-left: 5px;
+    margin-top: 20px;
+}
+
+#open-button {
+    top: 60px; left: 5px;
+    position: fixed;
+    z-index: 1;
+    width: 30px;
+    height: 30px;
+    background-color: #44434979
+}
+
+#close-button {
+    z-index: 99;
+    top: 60px; left: 230px;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #44434979;
+}
+
+.pArticle {
+    margin-top: 20px;
+    margin-right: 10px;
+}
+
+.pArticle:hover {
+    background-color: rgb(248, 248, 248);
+}
+
+#content-field {
+    background-color: rgb(253, 253, 253);
+}
+
+a, a:hover{
+    color: black;
+    text-decoration: none;
+}
+
+.margin-top {
+    margin-top: 20px;
+}
