@@ -241,6 +241,6 @@ app.put("/aplic/contents", jsonParser, function(req, res){
 
 
   
-app.listen(3000, function(){
+app.listen(3001, function(){
     console.log("Сервер ожидает подключения...");
 });
